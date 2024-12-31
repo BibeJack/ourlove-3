@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador Especial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        #timer {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Temporizador Especial</h1>
+    <div id="timer">
+        00 anos, 00 meses, 00 dias, 00 horas, 00 minutos, 00 segundos
+    </div>
+
+    <p>
+        Sou imensamente grato por ter você ao meu lado, meu amor. Desde o momento em que nos encontramos, no primeiro dia da nossa faculdade, senti que era algo especial. No meio de tantas aulas sobre o coração, foi o seu que roubou o meu. Você é o remédio para qualquer dia difícil e a dose certa de felicidade na minha vida. Obrigado por ser minha parceira dentro e fora das páginas dos livros. Te amo!
+    </p>
+
+    <script>
+        // Data de início
+        const startDate = new Date('2024-06-12T00:00:00');
+
+        // Função para atualizar o temporizador
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // Exibir o temporizador
+            document.getElementById('timer').innerHTML = `
+                ${years} anos, ${months} meses, ${days} dias, 
+                ${hours} horas, ${minutes} minutos, ${seconds} segundos
+            `;
+        }
+
+        // Atualizar o temporizador a cada segundo
+        setInterval(updateTimer, 1000);
+    </script>
+
+</body>
+</html>
